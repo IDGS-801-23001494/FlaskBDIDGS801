@@ -1,0 +1,44 @@
+{% macro datos(name,placeholder,type='text') %}
+
+    <div class="mb-3"> <!-- div.mb-3 -->
+        <label for="{{name}}" class="form-label">{{name}}</label>
+        <input type="{{type}}" class="form-control" id="{{name}}" name="{{name}}"
+        placeholder="{{placeholder}}">
+    </div>
+
+{%endmacro%}
+
+
+{%macro campoNuevo(field)%}
+    <td>{{field.label}}</td>
+    <dd>{{field(**kwargs) | safe}}</dd> <!-- Pinta el campo, procesa el texto y lo interpreta como HTML -->
+    {%if field.errors %}
+
+    {%for error in field.errors%}
+        <li style="color: red">{{error}}</li>
+    {%endfor%}
+
+    {%endif%}
+
+{%endmacro%}
+
+{% macro tarjetaCineco(field) %}
+  <div class="mb-3">
+    <label class="form-label d-block">{{ field.label.text }}</label>
+
+    {% for subfield in field %}
+      <div class="form-check form-check-inline">
+        {{ subfield(class="form-check-input") | safe }}
+        {{ subfield.label(class="form-check-label") }}
+      </div>
+    {% endfor %}
+
+    {% if field.errors %}
+      <div class="text-danger">
+        {% for error in field.errors %}
+          <div class="small">{{ error }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+{% endmacro %}
