@@ -1,38 +1,50 @@
 {%extends 'layout.html'%}
 {%block container%}
+{% import "_macros.html" as macros%}
 <div class="mt-5">
-    <form class="max-w-md mx-auto mt=5">
-
-            <div class="relative z-0 w-full mb-5 group">
-                <input type="text" name="floating_first_name" id="floating_first_name"
-                    class="block py-2.5 px-50 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
-                    placeholder=" " required />
-                <label for="floating_first_name"
-                    class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
-                    Nombre
-                </label>
-            </div>
-            <div class="relative z-0 w-full mb-5 group">
-                <input type="text" name="floating_last_name" id="floating_last_name"
-                    class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
-                    placeholder=" " required />
-                <label for="floating_last_name"
-                    class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
-                    Apellido paterno
-                </label>
-            </div>
+    <form action="" method="POST" novalidate class="max-w-md mx-auto mt-5">
+        {{form.csrf_token}}
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
 
         <div class="relative z-0 w-full mb-5 group">
-            <input type="email" name="floating_email" id="floating_email"
-                class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
-                placeholder=" " required />
-            <label for="floating_email"
-                class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-fg-brand peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto">
-                Correo
-            </label>
+            {{macros.campoNuevo(form.nombre,
+            class="block py-2.5 px-50 w-full text-sm text-heading bg-transparent border-0 border-b-2
+            border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            )}}
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.campoNuevo(form.apaterno,
+            class="block py-2.5 px-50 w-full text-sm text-heading bg-transparent border-0 border-b-2
+            border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            )}}
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.campoNuevo(form.email,
+            class="block py-2.5 px-50 w-full text-sm text-heading bg-transparent border-0 border-b-2
+            border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            )}}
         </div>
         <button type="submit"
-            class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Submit</button>
+            class="inline-flex items-center text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-3 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            Enviar
+        </button>
+        <a href="/"
+            class="inline-flex items-center ml-3 text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-3 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+
+            Cancelar
+        </a>
+
     </form>
 </div>
 {%endblock%}

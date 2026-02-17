@@ -8,5 +8,5 @@ class Config(object):
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLACHEWMY_DATABASE_URI = 'mysql+pymsql://root:root@127.0.0.1/flaskdb'
-    ALCHEMY_TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:root@127.0.0.1/bdidgs801'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
