@@ -1,0 +1,63 @@
+{%extends 'layout.html'%}
+{%block container%}
+{% import "_macros.html" as macros%}
+<div class="mt-5">
+    <form action="" method="POST" novalidate class="max-w-md mx-auto mt-5">
+        {{form.csrf_token}}
+        <input type="hidden" name="csrf_token" value="{{csrf_token()}}">
+
+        <div class="relative z-0 w-full mb-5 group hidden">
+            {{macros.campoNuevo(form.id,
+            class="block py-2.5  w-full text-sm text-heading bg-transparent border-0 border-b-2
+            border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            )}}
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.campoNuevo(form.nombre,
+            class="block py-2.5  w-full text-sm text-heading bg-transparent border-0 border-b-2
+            border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            )}}
+        </div>
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.campoNuevo(form.apellidos,
+            class="block py-2.5  w-full text-sm text-heading bg-transparent border-0 border-b-2
+            border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            )}}
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.campoNuevo(form.email,
+            class="block py-2.5  w-full text-sm text-heading bg-transparent border-0 border-b-2
+            border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            )}}
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.campoNuevo(form.telefono,
+            class="block py-2.5  w-full text-sm text-heading bg-transparent border-0 border-b-2
+            border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer"
+            )}}
+        </div>
+        <button type="submit"
+            class="inline-flex items-center text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-3 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            Eliminar
+        </button>
+        <a href="/alumnos"
+            class="inline-flex items-center ml-3 text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-3 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-base text-sm px-4 py-2.5 text-center leading-5">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+
+            Cancelar
+        </a>
+
+    </form>
+</div>
+{%endblock%}
