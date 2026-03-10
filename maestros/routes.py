@@ -50,6 +50,7 @@ def detallesMaes():
         apellidos = maes.apellidos
         especialidad = maes.especialidad
         email = maes.email
+        cursos = maes.cursos
     return render_template(
         "maestros/detallesMaes.html",
         matricula=matricula,
@@ -57,6 +58,7 @@ def detallesMaes():
         apellidos=apellidos,
         especialidad=especialidad,
         email=email,
+        cursos=cursos
     )
 
 @maestros.route("/maestros/modificarMaes", methods=["GET", "POST"])

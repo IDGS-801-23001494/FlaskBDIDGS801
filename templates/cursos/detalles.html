@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+{% block container %}
+<div class="py-32 relative overflow-x-auto sm:rounded-lg">
+
+    <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
+        <a href="#" class="block mt-0">
+            <img class="rounded-base" style="width:420px;height:auto;"
+                src="{{ url_for('static', filename='img/cursos.png') }}" alt="">
+        </a>
+
+        <a href="#">
+            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">
+                Curso: {{ nombre }}
+            </h5>
+        </a>
+
+        <p class="mb-6 text-body">Descripción: {{ descripcion }}</p>
+        <p class="mb-6 text-body">Maestro: {{ maestro.nombre }} {{maestro.apellidos}}</p>
+
+        <h6 class="mt-1 mb-2 text-2xl font-semibold tracking-tight text-heading">Alumnos inscritos</h6>
+
+        {% if alumnos and alumnos|length > 0 %}
+        <ul class="mb-6 text-body list-disc pl-6">
+            {% for a in alumnos %}
+            <li>{{ a.nombre }} {{ a.apellidos }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="mb-6 text-body">No hay alumnos inscritos en este curso.</p>
+        {% endif %}
+
+        <a href="/cursos"
+            class="mt-5 inline-flex items-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+            Regresar
+        </a>
+    </div>
+
+</div>
+{% endblock %}

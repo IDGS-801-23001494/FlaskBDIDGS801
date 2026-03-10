@@ -39,6 +39,9 @@
             Email
           </th>
           <th scope="col" class="px-6 py-3 font-medium">
+            Cursos
+          </th>
+          <th scope="col" class="px-6 py-3 font-medium">
             Editar
           </th>
           <th scope="col" class="px-6 py-3 font-medium">
@@ -67,6 +70,16 @@
           </td>
           <td class="px-6 py-4">
             {{maes.email}}
+          </td>
+
+          <td class="px-6 py-4">
+            {% if maes.cursos and maes.cursos|length > 0 %}
+              {% for c in maes.cursos %}
+                <div class="whitespace-nowrap">{{ c.nombre }}</div>
+              {% endfor %}
+            {% else %}
+              <div class="text-body">—</div>
+            {% endif %}
           </td>
 
           <td class="px-6 py-4 text-right">

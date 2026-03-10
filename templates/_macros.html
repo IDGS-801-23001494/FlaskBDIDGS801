@@ -42,3 +42,19 @@
     {% endif %}
   </div>
 {% endmacro %}
+
+{% macro campoSelect(field) %}
+  <div class="{{ wrapper_class }}">
+    <label class="{{ label_class }}" for="{{ field.id }}">{{ field.label.text }}</label>
+
+    {{ field(class=select_class) | safe }}
+
+    {% if field.errors %}
+      <div class="text-danger mt-1">
+        {% for error in field.errors %}
+          <div class="small">{{ error }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+{% endmacro %}

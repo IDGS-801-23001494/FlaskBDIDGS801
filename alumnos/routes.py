@@ -47,8 +47,9 @@ def detalles():
         apellidos = alum1.apellidos
         email = alum1.email
         telefono = alum1.telefono
+        cursos = alum1.cursos
     return render_template(
-        "alumnos/detalles.html", id=id, nombre=nombre, apellidos=apellidos, email=email, telefono=telefono
+        "alumnos/detalles.html", id=id, nombre=nombre, apellidos=apellidos, email=email, telefono=telefono, cursos=cursos
     )
 
 

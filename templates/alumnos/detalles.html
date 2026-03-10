@@ -15,6 +15,21 @@
     <p class="mb-6 text-body">Apellidos: {{apellidos}}</p>
     <p class="mb-6 text-body">Email: {{email}}</p>
     <p class="mb-6 text-body">Telefono: {{telefono}}</p>
+
+    <h6 class="mt-1 mb-2 text-2xl font-semibold tracking-tight text-heading">
+      Cursos inscritos
+    </h6>
+
+    {% if cursos and cursos|length > 0 %}
+      <ul class="mb-6 text-body list-disc pl-6">
+        {% for c in cursos %}
+          <li>{{ c.nombre }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="mb-6 text-body">Este alumno no está inscrito en ningún curso.</p>
+    {% endif %}
+
     <a href="/alumnos" class="mt-5 inline-flex items-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
         Regresar
     </a>

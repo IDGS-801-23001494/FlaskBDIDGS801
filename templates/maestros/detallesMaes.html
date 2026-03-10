@@ -5,27 +5,41 @@
 
 
 
-<div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
-    <a href="#">
-        <img class="rounded-base" src="../static/img/profile.png" alt="" />
-    </a>
-    <a href="#">
-        <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Matricula: {{matricula}}</h5>
-    </a>
-    <p class="mb-6 text-body">Nombre: {{nombre}}</p>
-    <p class="mb-6 text-body">Apellidos: {{apellidos}}</p>
-    <p class="mb-6 text-body">Especialidad: {{especialidad}}</p>
-    <p class="mb-6 text-body">Email: {{email}}</p>
-    <a href="/maestros" class="mt-5 inline-flex items-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
-        Regresar
-    </a>
-</div>
+    <div class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs">
+        <a href="#">
+            <img class="rounded-base" src="../static/img/profile.png" alt="" />
+        </a>
+        <a href="#">
+            <h5 class="mt-6 mb-2 text-2xl font-semibold tracking-tight text-heading">Matricula: {{matricula}}</h5>
+        </a>
+        <p class="mb-6 text-body">Nombre: {{nombre}}</p>
+        <p class="mb-6 text-body">Apellidos: {{apellidos}}</p>
+        <p class="mb-6 text-body">Especialidad: {{especialidad}}</p>
+        <p class="mb-6 text-body">Email: {{email}}</p>
 
-  
+        <h6 class="mt-1 mb-2 text-2xl font-semibold tracking-tight text-heading">
+            Cursos que imparte
+        </h6>
+
+        {% if cursos and cursos|length > 0 %}
+        <ul class="mb-6 text-body list-disc pl-6">
+            {% for c in cursos %}
+            <li>{{ c.nombre }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="mb-6 text-body">Este maestro no imparte ningún curso.</p>
+        {% endif %}
+
+        <a href="/maestros"
+            class="mt-5 inline-flex items-center text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+            Regresar
+        </a>
+    </div>
+
+
 
 </div>
 
 
 {%endblock%}
-
-
