@@ -1,0 +1,6 @@
+projectKey=FlaskBDIDGS801
+serverUrl=http://localhost:9000
+serverVersion=26.3.0.120487
+dashboardUrl=http://localhost:9000/dashboard?id=FlaskBDIDGS801
+ceTaskId=ad76a339-1373-4691-b4d2-2b756cb319e1
+ceTaskUrl=http://localhost:9000/api/ce/task?id=ad76a339-1373-4691-b4d2-2b756cb319e1
